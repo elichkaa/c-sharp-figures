@@ -1,0 +1,28 @@
+using System;
+
+namespace lesgedit2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var N = int.Parse(Console.ReadLine());
+            for (int i = 1; i <= N; i++)
+            {
+                for (int j = 1; j <= N; j++)
+                {
+                    if (j >= i + 1)
+                    {
+                        Console.Write(" ");
+                    }
+                    else
+                    {
+                        Console.Write("");
+                    }
+                }
+                Console.WriteLine();
+            }
+        }
+        
+    }
+}
