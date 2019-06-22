@@ -1,0 +1,16 @@
+using System;
+using System.Linq;
+namespace BasicSyntaxCSharp
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string username = Console.ReadLine();
+            string reversed = new string(username.Reverse().ToArray());
+
+            Console.WriteLine(reversed);
+            
+        }
+    }
+}
