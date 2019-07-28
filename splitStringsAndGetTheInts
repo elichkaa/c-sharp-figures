@@ -1,0 +1,6 @@
+string numbers = Console.ReadLine();
+char delimiter = ' ';
+string[] splitNumbers = numbers.Split(delimiter);
+
+long leftNum = long.Parse(splitNumbers[0]);
+long rightNum = long.Parse(splitNumbers[1]);
