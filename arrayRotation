@@ -1,0 +1,25 @@
+using System;
+using System.Linq;
+namespace ArraysDemo
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] array = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+            int rotations = int.Parse(Console.ReadLine());
+
+            for (int k = 0; k < rotations; k++)
+            {
+                int lastElement = array[0]; 
+                for (int i = 1; i < array.Length; i++)
+                {
+                    array[i - 1] = array[i];
+                }
+                array[array.Length - 1] = lastElement;
+                
+            }
+            Console.WriteLine(string.Join(" ", array));
+        }
+    }
+}
