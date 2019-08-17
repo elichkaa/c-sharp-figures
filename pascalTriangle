@@ -1,0 +1,39 @@
+using System;
+using System.Linq;
+
+namespace arrays
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int numberOfArrays = int.Parse(Console.ReadLine());
+            int number = 0;
+            int startAndEndOfRow = 1;
+
+
+            for (int i = 0; i < numberOfArrays; i++)
+            {
+                int[] row = new int[i + 1];
+                int[] lastRow = new int[i + 1];
+                for (int k = 0; k < row.Length; k++)
+                {
+                    if (k == 0 || k == i)
+                    {
+                        row[k] = 1;
+                    }
+                    else
+                    {
+                        row[k] = row[k - 1] * (i - k + 1) / k;
+                        //TOVA MI OTNE SIGURNO 5 CHASA DA SE SETQ ARGHHH
+                    }
+                }
+                lastRow = row;
+                Console.WriteLine(string.Join(" ", row));
+
+            }
+
+
+        }
+    }
+}
