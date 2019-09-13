@@ -1,0 +1,33 @@
+using System;
+
+namespace ConsoleApp3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int end = int.Parse(Console.ReadLine());
+            int rowCounter = 0;
+            for (int row = 1; row <= end; row++)
+            {
+
+                for (int col = 1; col <= row; col++)
+                {
+                    Console.Write(col + " ");
+                }
+                rowCounter++;
+                Console.WriteLine();
+            }
+            for (int row = end; row >= 0; row--)
+            {
+
+                for (int col = 1; col < row; col++)
+                {
+                    Console.Write(col + " ");
+                }
+                rowCounter++;
+                Console.WriteLine();
+            }
+        }
+    }
+}
