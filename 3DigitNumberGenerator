@@ -1,0 +1,89 @@
+using System.Linq;
+using System;
+using System.Collections.Generic;
+namespace ThreeDigitNumberGenerator
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[,] result = null;
+            Console.WriteLine("Enter first number:");
+            int a = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter second number:");
+            int b = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter third number:");
+            int c = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i < 3; i++)
+            {
+                if (i == 0)
+                {
+                    result = NumberBuilder(a, b, c);
+                }
+                else if (i == 1)
+                {
+                    result = NumberBuilder(b, a, c);
+                }
+                else
+                {
+                    result = NumberBuilder(c, b, a);
+                }
+                
+                for (int row = 0; row < 9; row++)
+                {
+                    for (int col = 0; col < 3; col++)
+                    {
+                        Console.Write(result[row, col]);
+                    }
+                    Console.WriteLine();
+                }
+            }
+        }
+        static int[,] NumberBuilder(int a, int b, int c)
+        {
+            var numbers = new int[9, 3];
+            for (int col = 0; col < 3; col++)
+            {
+                for (int row = 0; row < 9; row++)
+                {
+                    if (col == 0)
+                    {
+                        numbers[row, col] = a;
+                    }
+                    else if (col == 1)
+                    {
+                        if (row < 3)
+                        {
+                            numbers[row, col] = a;
+                        }
+                        else if (row < 6 && row >= 3)
+                        {
+                            numbers[row, col] = b;
+                        }
+                        else if (row < 9 && row >= 6)
+                        {
+                            numbers[row, col] = c;
+                        }
+                    }
+                    else if (col == 2)
+                    {
+                        if (row % 3 == 0)
+                        {
+                            numbers[row, col] = a;
+                        }
+                        else if (row % 2 != 0)
+                        {
+                            numbers[row, col] = b;
+                        }
+                        else if (row % 2 == 0)
+                        {
+                            numbers[row, col] = c;
+                        }
+                    }
+                }
+            }
+            return numbers;
+        }
+    }
+}
